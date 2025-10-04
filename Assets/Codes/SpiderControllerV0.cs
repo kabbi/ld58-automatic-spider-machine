@@ -29,11 +29,19 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         sprite = GetComponent<SpriteRenderer>();
         StartCoroutine(Run());
+    }
+
+    void Stop()
+    {
+    }
+
+    void OnEnable()
+    {
         ScoreManagerV0.Instance.currentNumberOfSpiders += 1;
         ScoreManagerV0.Instance.UpdateGUI();
     }
 
-    void Stop()
+    void OnDisable()
     {
         ScoreManagerV0.Instance.currentNumberOfSpiders -= 1;
         ScoreManagerV0.Instance.UpdateGUI();

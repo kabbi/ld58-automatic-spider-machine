@@ -6,6 +6,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
     public float interval;
     public float pauseTime;
     public GameObject prefab;
+    public GameObject pausedIndicator;
     public Transform spawnPoint;
 
     void Start()
@@ -30,7 +31,9 @@ public class SpiderSpawnerV0 : MonoBehaviour
 
     IEnumerator Feed()
     {
+        pausedIndicator.SetActive(true);
         yield return new WaitForSeconds(pauseTime);
+        pausedIndicator.SetActive(false);
         StartCoroutine(Run());
     }
 }
