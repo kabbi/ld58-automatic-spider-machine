@@ -50,6 +50,9 @@ TagManager:
   - name: Top
     uniqueID: 933962027
     locked: 0
+  - name: UI
+    uniqueID: 2430575533
+    locked: 0
   - name: Drag
     uniqueID: 38876775
     locked: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
@@ -28,6 +29,14 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         sprite = GetComponent<SpriteRenderer>();
         StartCoroutine(Run());
+        ScoreManagerV0.Instance.currentNumberOfSpiders += 1;
+        ScoreManagerV0.Instance.UpdateGUI();
+    }
+
+    void Stop()
+    {
+        ScoreManagerV0.Instance.currentNumberOfSpiders -= 1;
+        ScoreManagerV0.Instance.UpdateGUI();
     }
 
     void Update()
@@ -75,12 +84,24 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         currentState = State.Dragged;
         sprite.sortingLayerName = "Drag";
+        GetComponent<Collider2D>().enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        GetComponent<Collider2D>().enabled = true;
         currentState = State.ControlledChilling;
         sprite.sortingLayerName = "Spider";
+
+        if (eventData.pointerEnter != null)
+        {
+            var dropHandler = eventData.pointerEnter.GetComponent<IDropHandler>();
+            if (dropHandler != null)
+            {
+                ExecuteEvents.Execute(eventData.pointerEnter, eventData, ExecuteEvents.dropHandler);
+                return;
+            }
+        }
 
         List<Collider2D> otherSpiders = new();
         Physics2D.OverlapCollider(GetComponent<Collider2D>(), otherSpiders);
