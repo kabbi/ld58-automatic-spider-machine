@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
 public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
@@ -13,6 +14,8 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         ControlledChilling,
         ControlledWalking,
+        WalkingToHidingSpot,
+        Hidden,
         Dragged
     }
 
@@ -21,18 +24,18 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     public float chillTime;
     public float walkSpeed;
     private Vector3 walkTarget;
+    private HideSpotV0 hidingTarget;
     private SpriteRenderer sprite;
+    private Animator animator;
     public TextMeshPro label;
     public int level = 0;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        StartCoroutine(Run());
-    }
-
-    void Stop()
-    {
+        animator = GetComponent<Animator>();
+        hidingTarget = ScoreManagerV0.Instance.GetRandomHidingSpot();
+        currentState = State.WalkingToHidingSpot;
     }
 
     void OnEnable()
@@ -49,36 +52,17 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     void Update()
     {
-    }
-
-    IEnumerator Run()
-    {
-        while (true)
+        if (currentState == State.WalkingToHidingSpot && hidingTarget)
         {
-            if (currentState == State.Dragged)
+            Vector3 direction = (hidingTarget.transform.position - transform.position).normalized * walkSpeed * Time.deltaTime;
+            transform.position += direction;
+            if (Vector2.Distance(transform.position, hidingTarget.transform.position) < 0.1)
             {
-                yield return new WaitForSeconds(0.5f);
-                continue;
-            }
-            currentState = State.ControlledChilling;
-            yield return new WaitForSeconds(chillTime);
-            currentState = State.ControlledWalking;
-            walkTarget = new Vector2(Random.value * bounds.x * 2 - bounds.x, Random.value * bounds.y * 2 - bounds.y);
-            while (true)
-            {
-                if (currentState != State.ControlledWalking)
-                {
-                    break;
-                }
-                Vector3 direction = (walkTarget - transform.position).normalized * walkSpeed * Time.deltaTime;
-                transform.position += direction;
-                if (Vector2.Distance(transform.position, walkTarget) < 0.1)
-                {
-                    break;
-                }
-                yield return new WaitForEndOfFrame();
+                hidingTarget.spidersHere.Add(this);
+                currentState = State.Hidden;
             }
         }
+        animator.speed = currentState == State.WalkingToHidingSpot ? 1 : 0;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -97,9 +81,9 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<Collider2D>().enabled = true;
-        currentState = State.ControlledChilling;
         sprite.sortingLayerName = "Spider";
+        currentState = State.WalkingToHidingSpot;
+        GetComponent<Collider2D>().enabled = true;
 
         if (eventData.pointerEnter != null)
         {
@@ -127,5 +111,12 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         Destroy(otherSpider.gameObject);
         level += 1;
         label.text = $"lvl {level + 1}";
+    }
+
+    public void Shoo(HideSpotV0 nextHidingSpot)
+    {
+        hidingTarget.spidersHere.Remove(this);
+        hidingTarget = nextHidingSpot;
+        currentState = State.WalkingToHidingSpot;
     }
 }

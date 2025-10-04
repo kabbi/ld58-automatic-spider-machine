@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System;
-using NUnit.Framework;
 
 public class ScoreManagerV0 : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class ScoreManagerV0 : MonoBehaviour
     public float currentMoney = 100;
     public float maxNumberOfSpiders = 100;
     public float asmFeedPrice = 10;
+    public HideSpotV0[] allHidingSpots;
     public ProgressBarV0 fearProgressBar;
     public TextMeshProUGUI moneyLabel;
     public SpiderSpawnerV0 asm;
@@ -18,7 +18,6 @@ public class ScoreManagerV0 : MonoBehaviour
 
     void Awake()
     {
-        lastMoney = currentMoney;
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -27,6 +26,12 @@ public class ScoreManagerV0 : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    void Start()
+    {
+        lastMoney = currentMoney;
+        allHidingSpots = FindObjectsByType<HideSpotV0>(FindObjectsSortMode.None);
     }
 
     public void UpdateGUI()
@@ -54,6 +59,11 @@ public class ScoreManagerV0 : MonoBehaviour
         currentMoney -= asmFeedPrice;
         asm.FeedMoney();
         UpdateGUI();
+    }
+
+    public HideSpotV0 GetRandomHidingSpot()
+    {
+        return allHidingSpots[UnityEngine.Random.Range(0, allHidingSpots.Length)];
     }
 
     IEnumerator ResetDelta()
