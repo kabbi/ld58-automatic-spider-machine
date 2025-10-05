@@ -3569,6 +3569,8 @@ MonoBehaviour:
   prefab: {fileID: 3186646345895162998, guid: 9fec945f87dea405da635d8a19e2cef2, type: 3}
   pausedIndicator: {fileID: 70026750}
   spawnPoint: {fileID: 1208656717}
+  indicator: {fileID: 2027614764}
+  indicatorAngleRange: -170
 --- !u!114 &584515992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8572,13 +8574,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027614763}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.67674744, w: 0.7362153}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6744312, w: 0.7383377}
   m_LocalPosition: {x: -7.6114097, y: 2.65045, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 426482030}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 85.18}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 84.82}
 --- !u!212 &2027614765
 SpriteRenderer:
   m_ObjectHideFlags: 0

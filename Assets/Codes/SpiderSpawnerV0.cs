@@ -8,10 +8,29 @@ public class SpiderSpawnerV0 : MonoBehaviour
     public GameObject prefab;
     public GameObject pausedIndicator;
     public Transform spawnPoint;
+    public Transform indicator;
+    public float indicatorAngleRange = 85 * 2;
+    private float indicatorStartingAngle;
+    private float nextTriggerTime;
+    private bool paused;
 
     void Start()
     {
         StartCoroutine(Run());
+        indicatorStartingAngle = indicator.localEulerAngles.z;
+    }
+
+    void Update()
+    {
+        if (paused)
+        {
+            indicator.localEulerAngles = new Vector3(0, 0, indicatorStartingAngle);
+        }
+        if (!paused)
+        {
+            float angle = 1 - (nextTriggerTime - Time.time) / interval;
+            indicator.localEulerAngles = new Vector3(0, 0, indicatorStartingAngle + angle * indicatorAngleRange);
+        }
     }
 
     public void FeedMoney()
@@ -24,6 +43,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
     {
         while (true)
         {
+            nextTriggerTime = Time.time + interval;
             yield return new WaitForSeconds(interval);
             Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         }
@@ -31,9 +51,12 @@ public class SpiderSpawnerV0 : MonoBehaviour
 
     IEnumerator Feed()
     {
+        paused = true;
         pausedIndicator.SetActive(true);
         yield return new WaitForSeconds(pauseTime);
         pausedIndicator.SetActive(false);
+        paused = false;
+
         StartCoroutine(Run());
     }
 }
