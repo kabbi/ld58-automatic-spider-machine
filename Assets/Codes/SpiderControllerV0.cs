@@ -2,12 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
+
+
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
 public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [Serializable]
+    public struct SpiderLevelConfig
+    {
+        public int level;
+        public float startingPrice;
+        public RuntimeAnimatorController overrides;
+    }
+
     enum State
     {
         WalkingToHidingSpot,
@@ -23,10 +34,13 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     private SpriteRenderer sprite;
     private Animator animator;
     public TextMeshPro label;
+    public SpiderLevelConfig[] levels;
+    private SpiderLevelConfig currentLevelConfig;
     public int level = 0;
 
     void Start()
     {
+        currentLevelConfig = levels[0];
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         hidingTarget = ScoreManagerV0.Instance.GetRandomHidingSpot();
@@ -115,8 +129,15 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
 
         SpiderControllerV0 otherSpider = otherSpiderCollider.GetComponent<SpiderControllerV0>();
         Destroy(otherSpider.gameObject);
+        if (level >= levels.Length)
+        {
+            return;
+        }
+
         level += 1;
+        currentLevelConfig = levels[level];
         label.text = $"lvl {level + 1}";
+        animator.runtimeAnimatorController = currentLevelConfig.overrides;
     }
 
     public void Shoo(HideSpotV0 nextHidingSpot)
@@ -125,5 +146,10 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         hidingTarget = nextHidingSpot;
         currentState = State.WalkingToHidingSpot;
         animator.SetFloat("speed", 1);
+    }
+
+    public SpiderLevelConfig GetLevelConfig()
+    {
+        return currentLevelConfig;
     }
 }

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6677556867463923538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.07
+  m_Radius: 0.16
 --- !u!114 &7709819726371414956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,4 +346,14 @@ MonoBehaviour:
   hideTime: 10
   walkSpeed: 1
   label: {fileID: 6092572524617491834}
+  levels:
+  - level: 1
+    startingPrice: 10
+    overrides: {fileID: 9100000, guid: c84c12c475ff640d39b7d64fcc696ffa, type: 2}
+  - level: 2
+    startingPrice: 30
+    overrides: {fileID: 22100000, guid: 11ea10893b2684dd1b0ef00e78e0592a, type: 2}
+  - level: 3
+    startingPrice: 50
+    overrides: {fileID: 22100000, guid: 5d4ddd056e4a4471db212bd54a9e5998, type: 2}
   level: 0

@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using System;
 using UnityEngine.InputSystem;
+using NUnit.Framework.Constraints;
 
 public class ScoreManagerV0 : MonoBehaviour
 {
@@ -96,11 +97,11 @@ public class ScoreManagerV0 : MonoBehaviour
 
     void OnClickStart(InputAction.CallbackContext context)
     {
-        Cursor.SetCursor(pressedCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(pressedCursor, new Vector2(3, 4), CursorMode.Auto);
     }
 
     void OnClickEnd(InputAction.CallbackContext context)
     {
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(defaultCursor, new Vector2(3, 4), CursorMode.Auto);
     }
 }

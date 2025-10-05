@@ -6,12 +6,12 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: spider2_animation
+  m_Name: spider3_animation
   m_Controller: {fileID: 9100000, guid: c84c12c475ff640d39b7d64fcc696ffa, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: a798ddaea90f1403f80558e62c7cdf51, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ff792d69432f747fcbaeb9d0d009e108, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ae6b88db0f8946a2aec630d00f6169b, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 3c5dd08a575a04e94af02f066c61ba1e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 4664c904907e844c099ae2c80a70753d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8f28e0e73d8a0482d8671b45d2a654b2, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 4dca85d38f32441b5af960c3d84785ab, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 25f6ae69e2e4441959e56e5dec0329a7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 203f3ad7486194c3a8ab76169fb844c7, type: 2}
