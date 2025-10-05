@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b1e1d9642c3e4bc9a182e21a8ab525f
+guid: ad1e0dfe6cbc94d1583c395c0daad9b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5978353305783512758
-    second: spider7_dance_2_0
+      213: 4846896553144377880
+    second: win_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spider7_dance_2_0
+      name: win_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 45
-        height: 43
+        width: 928
+        height: 515
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a41ddf2d75f980da0800000000000000
-      internalID: -5978353305783512758
+      spriteID: 8126c313cb2a34340800000000000000
+      internalID: 4846896553144377880
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spider7_dance_2_0: -5978353305783512758
+      win_0: 4846896553144377880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
