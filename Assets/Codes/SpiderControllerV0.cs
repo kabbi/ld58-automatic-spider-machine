@@ -37,9 +37,12 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     public SpiderLevelConfig[] levels;
     private SpiderLevelConfig currentLevelConfig;
     public int level = 0;
+    private AudioSource audioSource;
+    public AudioClip soundEffect;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentLevelConfig = levels[0];
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -139,6 +142,8 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         label.text = $"lvl {level + 1}";
         animator.runtimeAnimatorController = currentLevelConfig.overrides;
         ScoreManagerV0.Instance.MarkSpiderDiscovered(this);
+        audioSource.PlayOneShot(soundEffect);
+
     }
 
     public void Shoo(HideSpotV0 nextHidingSpot)

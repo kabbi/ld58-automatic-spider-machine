@@ -13,9 +13,12 @@ public class SpiderSpawnerV0 : MonoBehaviour
     private float indicatorStartingAngle;
     private float nextTriggerTime;
     private bool paused;
+    private AudioSource audioSource;
+    public AudioClip soundEffect;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(Run());
         indicatorStartingAngle = indicator.localEulerAngles.z;
     }
@@ -43,6 +46,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
     {
         while (true)
         {
+            audioSource.PlayOneShot(soundEffect);
             nextTriggerTime = Time.time + interval;
             yield return new WaitForSeconds(interval);
             Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);

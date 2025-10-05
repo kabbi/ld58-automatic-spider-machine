@@ -14,9 +14,12 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
     public float activeTime = 2;
     private SpriteRenderer spriteRenderer;
     private Sprite originalSprite;
+    private AudioSource audioSource;
+    public AudioClip soundEffect;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalSprite = spriteRenderer.sprite;
     }
@@ -46,6 +49,7 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
 
     IEnumerator Activate()
     {
+        audioSource.PlayOneShot(soundEffect);
         if (effectObject)
         {
             effectObject.SetActive(true);
