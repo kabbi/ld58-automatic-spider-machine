@@ -10,18 +10,15 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     enum State
     {
-        ControlledChilling,
-        ControlledWalking,
         WalkingToHidingSpot,
         Hidden,
         Dragged
     }
 
     private State currentState;
-    public Vector2 bounds;
-    public float chillTime;
+    public float hideTime;
     public float walkSpeed;
-    private Vector3 walkTarget;
+    private float lastHidden;
     private HideSpotV0 hidingTarget;
     private SpriteRenderer sprite;
     private Animator animator;
@@ -58,9 +55,17 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
             {
                 hidingTarget.spidersHere.Add(this);
                 currentState = State.Hidden;
+                animator.SetFloat("speed", 0);
+                lastHidden = Time.time;
             }
         }
-        animator.speed = currentState == State.WalkingToHidingSpot ? 1 : 0;
+        if (currentState == State.Hidden && hidingTarget && Time.time - lastHidden > hideTime)
+        {
+            hidingTarget.spidersHere.Remove(this);
+            hidingTarget = ScoreManagerV0.Instance.GetRandomHidingSpot();
+            currentState = State.WalkingToHidingSpot;
+            animator.SetFloat("speed", 1);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -73,12 +78,15 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         currentState = State.Dragged;
+        animator.SetBool("drag", true);
         sprite.sortingLayerName = "Drag";
         GetComponent<Collider2D>().enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        animator.SetBool("drag", false);
+        animator.SetFloat("speed", 1);
         sprite.sortingLayerName = "Spider";
         currentState = State.WalkingToHidingSpot;
         GetComponent<Collider2D>().enabled = true;
@@ -116,5 +124,6 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         hidingTarget.spidersHere.Remove(this);
         hidingTarget = nextHidingSpot;
         currentState = State.WalkingToHidingSpot;
+        animator.SetFloat("speed", 1);
     }
 }
