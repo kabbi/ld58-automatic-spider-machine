@@ -56,5 +56,8 @@ TagManager:
   - name: Drag
     uniqueID: 38876775
     locked: 0
+  - name: Tutorial
+    uniqueID: 2451627721
+    locked: 0
   m_RenderingLayers:
   - Default
