@@ -16,6 +16,9 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
     private Sprite originalSprite;
     private AudioSource audioSource;
     public AudioClip soundEffect;
+    public bool shake;
+    public float shakeAmplitude = 0.2f;
+    public float shakeDuration = 0.5f;
 
     void Start()
     {
@@ -50,6 +53,10 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
     IEnumerator Activate()
     {
         audioSource.PlayOneShot(soundEffect);
+        if (shake)
+        {
+            StartCoroutine(Shake());
+        }
         if (effectObject)
         {
             effectObject.SetActive(true);
@@ -67,5 +74,24 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
         {
             spriteRenderer.sprite = originalSprite;
         }
+    }
+
+    IEnumerator Shake()
+    {
+        Vector3 originalPos = transform.localPosition;
+
+        float elapsed = 0f;
+        while (elapsed < shakeDuration)
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f) * shakeAmplitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * shakeAmplitude;
+
+            transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = originalPos;
     }
 }
