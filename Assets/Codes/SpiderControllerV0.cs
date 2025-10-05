@@ -138,6 +138,7 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         currentLevelConfig = levels[level];
         label.text = $"lvl {level + 1}";
         animator.runtimeAnimatorController = currentLevelConfig.overrides;
+        ScoreManagerV0.Instance.MarkSpiderDiscovered(this);
     }
 
     public void Shoo(HideSpotV0 nextHidingSpot)

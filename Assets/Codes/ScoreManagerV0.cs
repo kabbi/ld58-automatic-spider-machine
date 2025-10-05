@@ -3,7 +3,6 @@ using TMPro;
 using System.Collections;
 using System;
 using UnityEngine.InputSystem;
-using NUnit.Framework.Constraints;
 
 public class ScoreManagerV0 : MonoBehaviour
 {
@@ -20,6 +19,9 @@ public class ScoreManagerV0 : MonoBehaviour
     public Texture2D pressedCursor;
     public Texture2D defaultCursor;
     public SpiderSpawnerV0 asm;
+    public GameObject[] lights;
+    public TextMeshPro[] priceLabels;
+    private int maxLevelDiscovered = 0;
     private float lastMoney;
 
     void Awake()
@@ -103,5 +105,16 @@ public class ScoreManagerV0 : MonoBehaviour
     void OnClickEnd(InputAction.CallbackContext context)
     {
         Cursor.SetCursor(defaultCursor, new Vector2(3, 4), CursorMode.Auto);
+    }
+
+    public void MarkSpiderDiscovered(SpiderControllerV0 spider)
+    {
+        if (spider.level <= maxLevelDiscovered)
+        {
+            return;
+        }
+        maxLevelDiscovered = spider.level;
+        priceLabels[spider.level].text = $"{spider.GetLevelConfig().startingPrice:#}$";
+        lights[spider.level - 1].SetActive(true);
     }
 }

@@ -13,11 +13,12 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
     public Sprite activeSprite;
     public float activeTime = 2;
     private SpriteRenderer spriteRenderer;
-    private Sprite prevSprite;
+    private Sprite originalSprite;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalSprite = spriteRenderer.sprite;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -51,7 +52,6 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
         }
         if (activeSprite)
         {
-            prevSprite = spriteRenderer.sprite;
             spriteRenderer.sprite = activeSprite;
         }
         yield return new WaitForSeconds(activeTime);
@@ -61,7 +61,7 @@ public class ShooControllerV0 : MonoBehaviour, IPointerClickHandler
         }
         if (activeSprite)
         {
-            spriteRenderer.sprite = prevSprite;
+            spriteRenderer.sprite = originalSprite;
         }
     }
 }
