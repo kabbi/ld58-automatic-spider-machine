@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1698118e68b8e4b7eb59e483148c4806
+guid: 979c77958237f42f893b81a4cb546564
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8293621924610796798
-    second: cursor_hand2_0
+      213: 3435059254868987014
+    second: shatter2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_hand2_0
+      name: shatter2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 34
+        width: 214
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efc61dde23dd81370800000000000000
-      internalID: 8293621924610796798
+      spriteID: 68c42ec4138cbaf20800000000000000
+      internalID: 3435059254868987014
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cursor_hand2_0: 8293621924610796798
+      shatter2_0: 3435059254868987014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

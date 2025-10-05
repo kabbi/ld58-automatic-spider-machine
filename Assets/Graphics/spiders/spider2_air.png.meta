@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1698118e68b8e4b7eb59e483148c4806
+guid: ecbfc94fbd986470a9edbc75f7c1b66a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8293621924610796798
-    second: cursor_hand2_0
+      213: -8540672786284633611
+    second: spider2_air_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_hand2_0
+      name: spider2_air_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 34
+        width: 29
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efc61dde23dd81370800000000000000
-      internalID: 8293621924610796798
+      spriteID: 5f1a8aee95f697980800000000000000
+      internalID: -8540672786284633611
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cursor_hand2_0: 8293621924610796798
+      spider2_air_0: -8540672786284633611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -85,15 +83,15 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
         currentState = State.WalkingToHidingSpot;
         GetComponent<Collider2D>().enabled = true;
 
-        if (eventData.pointerEnter != null)
-        {
-            var dropHandler = eventData.pointerEnter.GetComponent<IDropHandler>();
-            if (dropHandler != null)
-            {
-                ExecuteEvents.Execute(eventData.pointerEnter, eventData, ExecuteEvents.dropHandler);
-                return;
-            }
-        }
+        // if (eventData.pointerEnter != null)
+        // {
+        //     var dropHandler = eventData.pointerEnter.GetComponent<IDropHandler>();
+        //     if (dropHandler != null)
+        //     {
+        //         ExecuteEvents.Execute(eventData.pointerEnter, eventData, ExecuteEvents.dropHandler);
+        //         return;
+        //     }
+        // }
 
         List<Collider2D> otherSpiders = new();
         Physics2D.OverlapCollider(GetComponent<Collider2D>(), otherSpiders);

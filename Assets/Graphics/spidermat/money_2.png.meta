@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1698118e68b8e4b7eb59e483148c4806
+guid: ddd73b3af41964a4f94873e68872016e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8293621924610796798
-    second: cursor_hand2_0
+      213: -7223139905496175203
+    second: money_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_hand2_0
+      name: money_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 34
+        width: 107
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efc61dde23dd81370800000000000000
-      internalID: 8293621924610796798
+      spriteID: d9da3f9968042cb90800000000000000
+      internalID: -7223139905496175203
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cursor_hand2_0: 8293621924610796798
+      money_2_0: -7223139905496175203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

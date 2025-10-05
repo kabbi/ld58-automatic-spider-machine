@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1698118e68b8e4b7eb59e483148c4806
+guid: b6018462310434beeb755c1abbe16080
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8293621924610796798
-    second: cursor_hand2_0
+      213: 4865941993155429161
+    second: shelf_tall_fx1_0
+  - first:
+      213: -4273975322788361145
+    second: shelf_tall_fx1_1
+  - first:
+      213: 1628715630608195113
+    second: shelf_tall_fx1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_hand2_0
+      name: shelf_tall_fx1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 42
-        height: 34
+        y: 128
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efc61dde23dd81370800000000000000
-      internalID: 8293621924610796798
+      spriteID: 9238faf367c478340800000000000000
+      internalID: 4865941993155429161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shelf_tall_fx1_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 63
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c0a62a61acfa4c0800000000000000
+      internalID: -4273975322788361145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shelf_tall_fx1_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 49
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e178a9c3c5a9610800000000000000
+      internalID: 1628715630608195113
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cursor_hand2_0: 8293621924610796798
+      shelf_tall_fx1_0: 4865941993155429161
+      shelf_tall_fx1_1: -4273975322788361145
+      shelf_tall_fx1_2: 1628715630608195113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

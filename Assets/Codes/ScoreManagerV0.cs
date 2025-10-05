@@ -12,7 +12,8 @@ public class ScoreManagerV0 : MonoBehaviour
     public float asmFeedPrice = 10;
     public HideSpotV0[] allHidingSpots;
     public ProgressBarV0 fearProgressBar;
-    public TextMeshProUGUI moneyLabel;
+    public TextMeshPro moneyLabel;
+    public TextMeshPro moneyDeltaLabel;
     public SpiderSpawnerV0 asm;
     private float lastMoney;
 
@@ -39,10 +40,11 @@ public class ScoreManagerV0 : MonoBehaviour
         StopAllCoroutines();
         float delta = currentMoney - lastMoney;
         bool hasDelta = Math.Abs(delta) > 0.01;
-        string deltaText = hasDelta ? $"{(delta > 0 ? "+" : "")}{delta.ToString("#,##")}$" : "";
 
         fearProgressBar.progress = currentNumberOfSpiders / maxNumberOfSpiders;
-        moneyLabel.text = $"{currentMoney.ToString("#,##0")}$ {deltaText}";
+        moneyLabel.text = $"{currentMoney.ToString("#,##0")}$";
+        moneyDeltaLabel.text = $"{(delta > 0 ? "+" : "")}{delta.ToString("#,##")}$";
+        moneyDeltaLabel.gameObject.SetActive(hasDelta);
 
         if (hasDelta)
         {
