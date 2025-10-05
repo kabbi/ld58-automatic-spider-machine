@@ -24,6 +24,12 @@ public class SpiderShopV0 : MonoBehaviour, IDropHandler
 
         float startingPrice = spider.GetLevelConfig().startingPrice;
         float price = startingPrice * (float)Math.Pow(factorPerSold, soldByLevel[spider.level] - 1);
+
+        if (price < 0.5)
+        {
+            return;
+        }
+
         ScoreManagerV0.Instance.currentMoney += price;
         ScoreManagerV0.Instance.UpdateGUI();
 
