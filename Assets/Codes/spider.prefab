@@ -357,6 +357,18 @@ MonoBehaviour:
   - level: 3
     startingPrice: 15
     overrides: {fileID: 22100000, guid: 5d4ddd056e4a4471db212bd54a9e5998, type: 2}
+  - level: 4
+    startingPrice: 20
+    overrides: {fileID: 22100000, guid: 42c5377dddb7d4f508e6a4ca72064de5, type: 2}
+  - level: 5
+    startingPrice: 25
+    overrides: {fileID: 22100000, guid: 76da2b20028b74ad6b53e451ffabb0df, type: 2}
+  - level: 6
+    startingPrice: 30
+    overrides: {fileID: 22100000, guid: ce742d6794ba841ceba7e588baad7955, type: 2}
+  - level: 7
+    startingPrice: 35
+    overrides: {fileID: 22100000, guid: 08ed0c8a08f454d9ea1857eb2f789ec6, type: 2}
   level: 0
   soundEffect: {fileID: 8300000, guid: 6c9e3328752724e78ab5951a36b12f2a, type: 3}
 --- !u!82 &8148140518667264531
