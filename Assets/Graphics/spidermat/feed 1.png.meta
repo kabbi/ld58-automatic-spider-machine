@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b519004ff0aa845a8bb30443969e2b56
+guid: e66c7b930ce5548daabb04e1a204abb4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8410946071742221942
-    second: sell_pit_0
+      213: 4805137731930211701
+    second: feed 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sell_pit_0
+      name: feed 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 111
-        height: 68
+        width: 262
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67e892f93eea9b470800000000000000
-      internalID: 8410946071742221942
+      spriteID: 575c688fe474fa240800000000000000
+      internalID: 4805137731930211701
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sell_pit_0: 8410946071742221942
+      feed 1_0: 4805137731930211701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
