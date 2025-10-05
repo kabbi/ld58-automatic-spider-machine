@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: spider2_animation
   m_Controller: {fileID: 9100000, guid: c84c12c475ff640d39b7d64fcc696ffa, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a798ddaea90f1403f80558e62c7cdf51, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff792d69432f747fcbaeb9d0d009e108, type: 2}
