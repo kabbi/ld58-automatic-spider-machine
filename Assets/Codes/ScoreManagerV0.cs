@@ -66,8 +66,8 @@ public class ScoreManagerV0 : MonoBehaviour
         bool hasDelta = Math.Abs(delta) > 0.01;
 
         fearProgressBar.progress = currentNumberOfSpiders / maxNumberOfSpiders;
-        moneyLabel.text = $"{currentMoney.ToString("#,##0")}$";
-        moneyDeltaLabel.text = $"{(delta > 0 ? "+" : "")}{delta.ToString("#,##")}$";
+        moneyLabel.text = $"{currentMoney:#.##}$";
+        moneyDeltaLabel.text = $"{(delta > 0 ? "+" : "")}{delta:#,##}$";
         moneyDeltaLabel.gameObject.SetActive(hasDelta);
 
         if (hasDelta)
