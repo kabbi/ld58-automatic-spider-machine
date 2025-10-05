@@ -3,11 +3,12 @@ using TMPro;
 using System.Collections;
 using System;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ScoreManagerV0 : MonoBehaviour
 {
     public static ScoreManagerV0 Instance { get; private set; }
-    public float currentNumberOfSpiders = 0;
+    private float currentNumberOfSpiders = 0;
     public float currentMoney = 100;
     public float maxNumberOfSpiders = 100;
     public float asmFeedPrice = 10;
@@ -21,6 +22,7 @@ public class ScoreManagerV0 : MonoBehaviour
     public SpiderSpawnerV0 asm;
     public GameObject[] lights;
     public TextMeshPro[] priceLabels;
+    public int maxSpiderLevel = 6;
     private int maxLevelDiscovered = 0;
     private float lastMoney;
 
@@ -107,14 +109,31 @@ public class ScoreManagerV0 : MonoBehaviour
         Cursor.SetCursor(defaultCursor, new Vector2(3, 4), CursorMode.Auto);
     }
 
+    public void UpdateSpiderCount(int delta)
+    {
+        currentNumberOfSpiders += delta;
+        UpdateGUI();
+
+        if (currentNumberOfSpiders >= maxNumberOfSpiders)
+        {
+            SceneManager.LoadScene("Fail");
+        }
+    }
+
     public void MarkSpiderDiscovered(SpiderControllerV0 spider)
     {
         if (spider.level <= maxLevelDiscovered)
         {
             return;
         }
+
         maxLevelDiscovered = spider.level;
         priceLabels[spider.level].text = $"{spider.GetLevelConfig().startingPrice:#}$";
         lights[spider.level - 1].SetActive(true);
+
+        if (maxLevelDiscovered == maxSpiderLevel)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
 }

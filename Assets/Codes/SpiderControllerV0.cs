@@ -52,14 +52,12 @@ public class SpiderControllerV0 : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     void OnEnable()
     {
-        ScoreManagerV0.Instance.currentNumberOfSpiders += 1;
-        ScoreManagerV0.Instance.UpdateGUI();
+        ScoreManagerV0.Instance.UpdateSpiderCount(1);
     }
 
     void OnDisable()
     {
-        ScoreManagerV0.Instance.currentNumberOfSpiders -= 1;
-        ScoreManagerV0.Instance.UpdateGUI();
+        ScoreManagerV0.Instance.UpdateSpiderCount(-1);
     }
 
     void Update()
