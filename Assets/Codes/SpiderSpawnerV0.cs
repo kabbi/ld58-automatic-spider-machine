@@ -15,6 +15,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
     private bool paused;
     private AudioSource audioSource;
     public AudioClip soundEffect;
+    public Animator mouth;
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
 
     IEnumerator Run()
     {
+        mouth.SetBool("open", true);
         while (true)
         {
             audioSource.PlayOneShot(soundEffect);
@@ -56,6 +58,7 @@ public class SpiderSpawnerV0 : MonoBehaviour
     IEnumerator Feed()
     {
         paused = true;
+        mouth.SetBool("open", false);
         pausedIndicator.SetActive(true);
         yield return new WaitForSeconds(pauseTime);
         pausedIndicator.SetActive(false);
