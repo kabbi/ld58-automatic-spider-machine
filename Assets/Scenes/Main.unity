@@ -13436,7 +13436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpiderShopV0
   startingPrice: 10
-  factorPerSold: 0.6
+  factorPerSold: 0.7
   priceLabels:
   - {fileID: 1922962034}
   - {fileID: 1630429391}
